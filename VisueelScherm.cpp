@@ -5,6 +5,7 @@
  *      Author: acer
  */
 
+
 #include "VisueelScherm.hpp"
 
 VisueelScherm::VisueelScherm( WeerData* weerData )
@@ -116,5 +117,6 @@ void VisueelScherm::pointerPressEvent( MAPoint2d maPoint )
 		this->textueelKnop->setSelected( false );
 	}
 }
+
 
 
