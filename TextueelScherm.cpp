@@ -2,7 +2,7 @@
  * TextueelScherm.cpp
  *
  *  Created on: 11 mrt. 2012
- *      Author: acer
+ *      Author: acer, Marijn
  */
 
 #include "TextueelScherm.hpp"
@@ -32,7 +32,7 @@ TextueelScherm::TextueelScherm( WeerData* weerData )
 	listBox->setBackgroundColor(0xffffff);
 
 	//knop om data te updaten
-	this->updateKnop = new Label( 30, 200, 120, 30, NULL, "   Update", 0, font );
+	this->updateKnop = new Label( 30, 200, 120, 30, NULL, "    Update", 0, font );
 	updateKnop->setPaddingTop(5);
 	updateKnop->setPaddingLeft(10);
 	this->updateKnop->setSkin( this->skin );
@@ -87,7 +87,6 @@ TextueelScherm::TextueelScherm( WeerData* weerData )
 TextueelScherm::~TextueelScherm()
 {
 }
-
 
 
 void TextueelScherm::toonWeerData()

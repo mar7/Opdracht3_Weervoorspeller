@@ -3,15 +3,11 @@
 
 #include "MAHeaders.h"
 
-
 using namespace MAUtil;
-
 
 #include "WeerData.hpp"
 #include "TextueelScherm.hpp"
 #include "VisueelScherm.hpp"
-
-
 
 
 class MAUIMoblet : public Moblet
@@ -50,8 +46,6 @@ public:
 	}
 
 };
-
-
 
 extern "C" int MAMain()
 {
