@@ -27,10 +27,13 @@ VisueelScherm::VisueelScherm( WeerData* weerData )
 	achtergrond->setBackgroundColor(0xffffff);
 
 	//maak een listbox met update en textueelknop
-	this->listBox = new ListBox(0, 200, screenWidth, screenHeight, achtergrond, ListBox::LBO_HORIZONTAL, ListBox::LBA_LINEAR, true);
+	this->listBox = new ListBox(0, 260, screenWidth, screenHeight, achtergrond, ListBox::LBO_VERTICAL, ListBox::LBA_LINEAR, true);
+	//listBox->setPaddingTop(3);
+	listBox->setPaddingLeft(listBox->getWidth() / 2 - 60);
+	listBox->setBackgroundColor(0xffffff);
 
 	//knop om data te updaten
-	this->updateKnop = new Label( 0, 0, 80, 30, NULL, "Update", 0, font );
+	this->updateKnop = new Label( 0, 0, 120, 30, NULL, "   Update", 0, font );
 	updateKnop->setPaddingTop(5);
 	updateKnop->setPaddingLeft(10);
 	this->updateKnop->setSkin( this->skin );
@@ -50,11 +53,11 @@ VisueelScherm::VisueelScherm( WeerData* weerData )
 	this->diagramTekening = maCreatePlaceholder();
 
 	//laat de placeholder tekenbaar zijn
-	maCreateDrawableImage( this->diagramTekening, EXTENT_X( maGetScrSize() ), EXTENT_Y( maGetScrSize() ) - 30 );
+	maCreateDrawableImage( this->diagramTekening, EXTENT_X( maGetScrSize() ), 255 );
 
 	//mak een nieuwe image met de placeholder
-	this->diagramImage = new Image( 0, 30, EXTENT_X( maGetScrSize() ), EXTENT_Y( maGetScrSize() ) - 30, achtergrond, true, true, this->diagramTekening );
-
+	this->diagramImage = new Image( 0, 0, EXTENT_X( maGetScrSize() ), 260, achtergrond, true, true, this->diagramTekening );
+	//diagramImage->setBackgroundColor(0xffffff);
 
 	this->setMain( achtergrond );
 }
@@ -74,8 +77,11 @@ void VisueelScherm::update()
 	maSetDrawTarget( this->diagramTekening );
 
 	// zet kleur op wit
+	maSetColor(0xffffff);
 
 	// teken assen
+	maLine(10, 10, 10, 200);
+	maLine(10, 200, 220, 200);
 
 
 	//teken een staaf diagram

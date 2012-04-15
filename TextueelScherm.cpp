@@ -35,7 +35,6 @@ TextueelScherm::TextueelScherm( WeerData* weerData )
 	this->updateKnop = new Label( 30, 200, 120, 30, NULL, "   Update", 0, font );
 	updateKnop->setPaddingTop(5);
 	updateKnop->setPaddingLeft(10);
-	updateKnop->setSelected(false);
 	this->updateKnop->setSkin( this->skin );
 	listBox->add(updateKnop);
 
