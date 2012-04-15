@@ -11,6 +11,7 @@
 <property key="build.prefs:extra.link.sw/Release" value=""/>
 <property key="build.prefs:extra.res.sw/Release" value=""/>
 <property key="build.prefs:gcc.warnings/Release" value="0"/>
+<property key="build.prefs:memory.data/Release" value="2048"/>
 <property key="build.prefs:project.type" value=""/>
 <property key="dependency.strategy" value="0"/>
 <property key="excludes/Release" value=""/>

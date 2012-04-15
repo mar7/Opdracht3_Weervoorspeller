@@ -13,21 +13,35 @@ VisueelScherm::VisueelScherm( WeerData* weerData )
 	//sla de weerdata op in het attribuut
 	this->weerData = weerData;
 
+	// schermgrootte
+	MAExtent screenSize = maGetScrSize();
+	int screenWidth = EXTENT_X(screenSize);
+	int screenHeight = EXTENT_Y(screenSize);
+
 	//ken font en skin toe
-	...
+	this->font = new MAUI::Font(RES_FONT);
+	this->skin = new WidgetSkin( RES_SELECTED, RES_UNSELECTED, 16, 32, 16, 32, false, false );
 
 	//maak een achtergrond label om alle andere widgets in op te slaan, en te tonen
-	Label* achtergrond = ...
+	Label* achtergrond = new Label(0, 0, 0, 0, NULL);
+	achtergrond->setBackgroundColor(0xffffff);
 
 	//maak een listbox met update en textueelknop
-	this->listBox = new ...
+	this->listBox = new ListBox(0, 190, screenWidth, screenHeight, achtergrond);
 
 	//knop om data te updaten
-	this->updateKnop = new ...
+	this->updateKnop = new Label( 30, 200, 80, 30, NULL, "Update", 0, font );
+	updateKnop->setPaddingTop(5);
+	updateKnop->setPaddingLeft(10);
+	this->updateKnop->setSkin( this->skin );
+	listBox->add(updateKnop);
 
-	//knop om naar visueel te schakelen
-	this->textueelKnop = new ...
-
+	//knop om naar textueel te schakelen
+	this->textueelKnop = new Label( 30, 240, 120, 30, NULL, "Textuele weergave", 0, font );
+	textueelKnop->setPaddingTop(5);
+	textueelKnop->setPaddingLeft(10);
+	this->textueelKnop->setSkin( this->skin );
+	listBox->add(textueelKnop);
 
 
 	//staafdiagram
@@ -54,12 +68,18 @@ VisueelScherm::~VisueelScherm()
 void VisueelScherm::update()
 {
 	//update waarden vam weerdata
-	...
+	this->weerData->update();
 
 	//stel draw target in op onze tekening
 	maSetDrawTarget( this->diagramTekening );
 
+	// zet kleur op wit
+
+	// teken assen
+
+
 	//teken een staaf diagram
+
 
 	//legenda
 	//teken blokje en text met zonneschijn, neerslag en temperatuur

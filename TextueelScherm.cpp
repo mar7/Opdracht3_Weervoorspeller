@@ -29,14 +29,14 @@ TextueelScherm::TextueelScherm( WeerData* weerData )
 	this->listBox = new ListBox(0, 190, screenWidth, screenHeight, achtergrond);
 
 	//knop om data te updaten
-	this->updateKnop = new Label( 30, 200, 80, 30, achtergrond, "Update", 0, font );
+	this->updateKnop = new Label( 30, 200, 80, 30, NULL, "Update", 0, font );
 	updateKnop->setPaddingTop(5);
 	updateKnop->setPaddingLeft(10);
 	this->updateKnop->setSkin( this->skin );
 	listBox->add(updateKnop);
 
 	//knop om naar visueel scherm te schakelen
-	this->visueelKnop = new Label( 30, 240, 120, 30, achtergrond, "Visuele weergave", 0, font );
+	this->visueelKnop = new Label( 30, 240, 120, 30, NULL, "Visuele weergave", 0, font );
 	visueelKnop->setPaddingTop(5);
 	visueelKnop->setPaddingLeft(10);
 	this->visueelKnop->setSkin( this->skin );
@@ -96,11 +96,11 @@ void TextueelScherm::toonWeerData()
 }
 
 
-/*void TextueelScherm::setToggleScherm( Screen* toggleScherm )
+void TextueelScherm::setToggleScherm( Screen* toggleScherm )
 {
 	//switch naar andere scherm (visueel scherm)
 	this->toggleScherm = toggleScherm;
-}*/
+}
 
 
 void TextueelScherm::update()
