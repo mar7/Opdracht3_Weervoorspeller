@@ -27,17 +27,17 @@ VisueelScherm::VisueelScherm( WeerData* weerData )
 	achtergrond->setBackgroundColor(0xffffff);
 
 	//maak een listbox met update en textueelknop
-	this->listBox = new ListBox(0, 190, screenWidth, screenHeight, achtergrond);
+	this->listBox = new ListBox(0, 200, screenWidth, screenHeight, achtergrond, ListBox::LBO_HORIZONTAL, ListBox::LBA_LINEAR, true);
 
 	//knop om data te updaten
-	this->updateKnop = new Label( 30, 200, 80, 30, NULL, "Update", 0, font );
+	this->updateKnop = new Label( 0, 0, 80, 30, NULL, "Update", 0, font );
 	updateKnop->setPaddingTop(5);
 	updateKnop->setPaddingLeft(10);
 	this->updateKnop->setSkin( this->skin );
 	listBox->add(updateKnop);
 
 	//knop om naar textueel te schakelen
-	this->textueelKnop = new Label( 30, 240, 120, 30, NULL, "Textuele weergave", 0, font );
+	this->textueelKnop = new Label( 0, 0, 120, 30, NULL, "Textuele weergave", 0, font );
 	textueelKnop->setPaddingTop(5);
 	textueelKnop->setPaddingLeft(10);
 	this->textueelKnop->setSkin( this->skin );

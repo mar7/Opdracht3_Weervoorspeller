@@ -26,12 +26,16 @@ TextueelScherm::TextueelScherm( WeerData* weerData )
 	achtergrond->setBackgroundColor(0xffffff);
 
 	//maak een listbox waar update en visueelknop aan toegevoegd worden
-	this->listBox = new ListBox(0, 190, screenWidth, screenHeight, achtergrond);
+	this->listBox = new ListBox(0, 230, screenWidth, screenHeight, achtergrond, ListBox::LBO_VERTICAL, ListBox::LBA_LINEAR, true);
+	listBox->setPaddingTop(10);
+	listBox->setPaddingLeft(listBox->getWidth() / 2 - 60);
+	listBox->setBackgroundColor(0xffffff);
 
 	//knop om data te updaten
-	this->updateKnop = new Label( 30, 200, 80, 30, NULL, "Update", 0, font );
+	this->updateKnop = new Label( 30, 200, 120, 30, NULL, "   Update", 0, font );
 	updateKnop->setPaddingTop(5);
 	updateKnop->setPaddingLeft(10);
+	updateKnop->setSelected(false);
 	this->updateKnop->setSkin( this->skin );
 	listBox->add(updateKnop);
 
@@ -44,21 +48,35 @@ TextueelScherm::TextueelScherm( WeerData* weerData )
 
 
 	//label veld voor weer data, beslaat de rest van het scherm (zie onder)
-	this->weerDataLabel = new Label( 10, 10, screenWidth - 5, 30, achtergrond, "3-daagse weersverwachting", 0, font );
+	this->weerDataLabel = new Label( 10, 10, screenWidth - 20, 30, achtergrond, "  3-daagse weersverwachting", 0, font );
+	weerDataLabel->setPaddingTop(5);
+	weerDataLabel->setPaddingLeft(10);
 	//weerDataLabel->setBackgroundColor(0x0f0f0f);
 	weerDataLabel->setSkin( this->skin );
 
 	//info label
-	this->weerInfo = new Label( 10, 30, 200, 30, achtergrond, "Vandaag  Morgen Overmorgen", 0, font );
+	this->weerInfo = new Label( 5, 50, screenWidth - 10, 30, achtergrond, "Vandaag Morgen Overmorgen", 0, font );
+	weerInfo->setPaddingTop(5);
+	weerInfo->setPaddingLeft(10);
+	weerInfo->setBackgroundColor(0x191970);
 
 	//zonneschijn label
-	this->weerInfoZon = new Label( 10, 70, 200, 30, achtergrond, "", 0, font );
+	this->weerInfoZon = new Label( 5, 90, screenWidth - 10, 30, achtergrond, "", 0, font );
+	weerInfoZon->setPaddingTop(5);
+	weerInfoZon->setPaddingLeft(10);
+	weerInfoZon->setBackgroundColor(0x191970);
 
 	//neerslag label
-	this->weerInfoNeerslag = new Label( 10, 110, 200, 30, achtergrond, "", 0, font );
+	this->weerInfoNeerslag = new Label( 5, 130, screenWidth - 10, 30, achtergrond, "", 0, font );
+	weerInfoNeerslag->setPaddingTop(5);
+	weerInfoNeerslag->setPaddingLeft(10);
+	weerInfoNeerslag->setBackgroundColor(0x191970);
 
 	//minimum temperatuur label
-	this->weerInfoMintemp = new Label( 10, 150, 200, 30, achtergrond, "", 0, font );
+	this->weerInfoMintemp = new Label( 5, 170, screenWidth - 10, 30, achtergrond, "", 0, font );
+	weerInfoMintemp->setPaddingTop(5);
+	weerInfoMintemp->setPaddingLeft(10);
+	weerInfoMintemp->setBackgroundColor(0x191970);
 
 	//update labels met text, etc.
 	this->update();
